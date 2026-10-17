@@ -1,0 +1,629 @@
+{
+  "schema_version": 1,
+  "source": "saved outputs in analysis.ipynb",
+  "run": {
+    "code_cells": 25,
+    "shards": 6,
+    "source_rows": 184426,
+    "hours": 8.42,
+    "eligible_pairs": 159546,
+    "test_intervals": 24483,
+    "project_mb": 565.8,
+    "horizon_seconds": 300
+  },
+  "quality": {
+    "input_rows": 184426,
+    "invalid_measurements": {
+      "CPU rate": 0,
+      "canonical memory usage": 0,
+      "assigned memory usage": 0,
+      "maximum memory usage": 0,
+      "disk I/O time": 0,
+      "local disk space usage": 0,
+      "maximum CPU rate": 0,
+      "maximum disk IO time": 0,
+      "sampled CPU usage": 0
+    },
+    "invalid_id_rows": 0,
+    "invalid_time_rows": 0,
+    "missing_measurements": {
+      "CPU rate": 0,
+      "canonical memory usage": 0,
+      "assigned memory usage": 0,
+      "maximum memory usage": 0,
+      "disk I/O time": 0,
+      "local disk space usage": 0,
+      "maximum CPU rate": 0,
+      "maximum disk IO time": 5410,
+      "sampled CPU usage": 0
+    },
+    "missing_machine_id_rows": 0,
+    "exact_duplicate_rows": 0,
+    "conflicting_interval_rows": 0,
+    "overlapping_interval_rows": 83,
+    "missing_required_usage_rows": 0,
+    "clean_rows": 184343,
+    "interval_seconds_top": {
+      "300.0": 165473,
+      "1.0": 2021,
+      "2.0": 940,
+      "16.0": 540,
+      "15.0": 465
+    },
+    "non_300_second_rows": 18870,
+    "regular_300_second_rows": 165473
+  },
+  "split_counts": [
+    {
+      "split": "train",
+      "eligible pairs": 108945
+    },
+    {
+      "split": "validation",
+      "eligible pairs": 22864
+    },
+    {
+      "split": "test",
+      "eligible pairs": 24483
+    },
+    {
+      "split": "purged",
+      "eligible pairs": 3254
+    }
+  ],
+  "clustering": {
+    "scores": [
+      {
+        "k": 2,
+        "silhouette": 0.6248431981168208,
+        "smallest_scoring_cluster": 282
+      },
+      {
+        "k": 3,
+        "silhouette": 0.505969411809387,
+        "smallest_scoring_cluster": 120
+      },
+      {
+        "k": 4,
+        "silhouette": 0.5829160484963998,
+        "smallest_scoring_cluster": 30
+      },
+      {
+        "k": 5,
+        "silhouette": null,
+        "smallest_scoring_cluster": 17
+      },
+      {
+        "k": 6,
+        "silhouette": null,
+        "smallest_scoring_cluster": 12
+      }
+    ],
+    "profiles": [
+      {
+        "cluster": 0,
+        "train_rows": 88176,
+        "cpu_now": 0.0002489,
+        "memory_now": 0.002522,
+        "io_now": 5.722e-06,
+        "cpu_roll3_std": 5.942129e-06,
+        "memory_roll3_std": 3.7712648e-06
+      },
+      {
+        "cluster": 1,
+        "train_rows": 20769,
+        "cpu_now": 0.04565,
+        "memory_now": 0.06506,
+        "io_now": 0.000329,
+        "cpu_roll3_std": 0.0030269169,
+        "memory_roll3_std": 0.00014141672
+      }
+    ]
+  },
+  "forecasting": {
+    "selected_models": {
+      "cpu": "persistence",
+      "memory": "persistence"
+    },
+    "validation": [
+      {
+        "resource": "cpu",
+        "model": "persistence",
+        "fit_seconds": 0.0,
+        "training_rows": 0,
+        "MAE": 0.0027958895082623773,
+        "RMSE": 0.010155823245456845,
+        "R2": 0.9141765436873374
+      },
+      {
+        "resource": "cpu",
+        "model": "random_forest",
+        "fit_seconds": 57.81,
+        "training_rows": 50000,
+        "MAE": 0.0028415909695188855,
+        "RMSE": 0.009656065263489794,
+        "R2": 0.9224152941266094
+      },
+      {
+        "resource": "cpu",
+        "model": "ridge_alpha_10",
+        "fit_seconds": 0.06,
+        "training_rows": 108945,
+        "MAE": 0.003042138603239168,
+        "RMSE": 0.00978952927415338,
+        "R2": 0.9202557547331006
+      },
+      {
+        "resource": "cpu",
+        "model": "ridge_alpha_1",
+        "fit_seconds": 0.05,
+        "training_rows": 108945,
+        "MAE": 0.0030443989039198554,
+        "RMSE": 0.009805562579578563,
+        "R2": 0.9199943303435723
+      },
+      {
+        "resource": "memory",
+        "model": "persistence",
+        "fit_seconds": 0.0,
+        "training_rows": 0,
+        "MAE": 0.00042777705320356477,
+        "RMSE": 0.0034372644362845564,
+        "R2": 0.9914933151000181
+      },
+      {
+        "resource": "memory",
+        "model": "random_forest",
+        "fit_seconds": 55.22,
+        "training_rows": 50000,
+        "MAE": 0.00044591903662150696,
+        "RMSE": 0.003092089025377836,
+        "R2": 0.9931160384553697
+      },
+      {
+        "resource": "memory",
+        "model": "ridge_alpha_10",
+        "fit_seconds": 0.08,
+        "training_rows": 108945,
+        "MAE": 0.000529296162022452,
+        "RMSE": 0.003160927448142574,
+        "R2": 0.9928061146464058
+      },
+      {
+        "resource": "memory",
+        "model": "ridge_alpha_1",
+        "fit_seconds": 0.05,
+        "training_rows": 108945,
+        "MAE": 0.0005337652141679936,
+        "RMSE": 0.0031686974728769215,
+        "R2": 0.9927707039201759
+      }
+    ],
+    "test": [
+      {
+        "resource": "cpu",
+        "model": "persistence",
+        "MAE": 0.0031805625921752637,
+        "RMSE": 0.010470525286433436,
+        "R2": 0.9027272637497117
+      },
+      {
+        "resource": "memory",
+        "model": "persistence",
+        "MAE": 0.0004496309041464189,
+        "RMSE": 0.0030654730477770366,
+        "R2": 0.9930115255038524
+      }
+    ]
+  },
+  "risk": {
+    "selected_model": "decision_tree",
+    "class_counts": [
+      {
+        "label": "balanced",
+        "train": 89669,
+        "validation": 19422,
+        "test": 20510
+      },
+      {
+        "label": "CPU risk",
+        "train": 8426,
+        "validation": 1241,
+        "test": 1642
+      },
+      {
+        "label": "memory risk",
+        "train": 8393,
+        "validation": 1766,
+        "test": 1827
+      },
+      {
+        "label": "both",
+        "train": 2457,
+        "validation": 435,
+        "test": 504
+      }
+    ],
+    "validation": [
+      {
+        "model": "decision_tree",
+        "macro_F1": 0.8688068074534016,
+        "recall_balanced": 0.9577798372979096,
+        "recall_CPU risk": 0.91941982272361,
+        "recall_memory risk": 0.9648924122310306,
+        "recall_both": 0.9287356321839081
+      },
+      {
+        "model": "logistic_regression",
+        "macro_F1": 0.8290411108286133,
+        "recall_balanced": 0.9495932447739677,
+        "recall_CPU risk": 0.8074133763094279,
+        "recall_memory risk": 0.9750849377123443,
+        "recall_both": 0.9471264367816092
+      },
+      {
+        "model": "majority",
+        "macro_F1": 0.22965047533462613,
+        "recall_balanced": 1.0,
+        "recall_CPU risk": 0.0,
+        "recall_memory risk": 0.0,
+        "recall_both": 0.0
+      }
+    ],
+    "test_macro_f1": 0.8752,
+    "majority_test_macro_f1": 0.2279
+  },
+  "allocation": {
+    "margin": 0.1,
+    "margin_search": [
+      {
+        "margin": 0.0,
+        "cpu_utilization": 0.8589,
+        "cpu_unmet_fraction": 0.0906,
+        "cpu_overloaded_task_fraction": 0.1411,
+        "memory_utilization": 0.9571,
+        "memory_unmet_fraction": 0.0218,
+        "memory_overloaded_task_fraction": 0.2061,
+        "risk_feasible": false,
+        "mean_utilization": 0.908,
+        "excess_risk": 0.0014
+      },
+      {
+        "margin": 0.1,
+        "cpu_utilization": 0.8102,
+        "cpu_unmet_fraction": 0.062,
+        "cpu_overloaded_task_fraction": 0.0823,
+        "memory_utilization": 0.9594,
+        "memory_unmet_fraction": 0.0193,
+        "memory_overloaded_task_fraction": 0.1977,
+        "risk_feasible": true,
+        "mean_utilization": 0.8848,
+        "excess_risk": 0.0
+      },
+      {
+        "margin": 0.25,
+        "cpu_utilization": 0.7368,
+        "cpu_unmet_fraction": 0.0424,
+        "cpu_overloaded_task_fraction": 0.0502,
+        "memory_utilization": 0.9622,
+        "memory_unmet_fraction": 0.0165,
+        "memory_overloaded_task_fraction": 0.1821,
+        "risk_feasible": true,
+        "mean_utilization": 0.8495,
+        "excess_risk": 0.0
+      },
+      {
+        "margin": 0.5,
+        "cpu_utilization": 0.7131,
+        "cpu_unmet_fraction": 0.0377,
+        "cpu_overloaded_task_fraction": 0.0438,
+        "memory_utilization": 0.9653,
+        "memory_unmet_fraction": 0.0134,
+        "memory_overloaded_task_fraction": 0.1522,
+        "risk_feasible": true,
+        "mean_utilization": 0.8392,
+        "excess_risk": 0.0
+      },
+      {
+        "margin": 1.0,
+        "cpu_utilization": 0.7135,
+        "cpu_unmet_fraction": 0.0372,
+        "cpu_overloaded_task_fraction": 0.0443,
+        "memory_utilization": 0.9682,
+        "memory_unmet_fraction": 0.0103,
+        "memory_overloaded_task_fraction": 0.1074,
+        "risk_feasible": true,
+        "mean_utilization": 0.8409,
+        "excess_risk": 0.0
+      }
+    ],
+    "baseline": [
+      {
+        "policy": "fixed",
+        "resource": "cpu",
+        "utilization": 0.3614,
+        "unused_resource_seconds": 92972.5417,
+        "unmet_resource_seconds": 65017.8824,
+        "unmet_fraction": 0.5527,
+        "overloaded_task_fraction": 0.2453,
+        "pool_saturation_fraction": 1.0
+      },
+      {
+        "policy": "fixed",
+        "resource": "memory",
+        "utilization": 0.4387,
+        "unused_resource_seconds": 92354.1343,
+        "unmet_resource_seconds": 83971.575,
+        "unmet_fraction": 0.5378,
+        "overloaded_task_fraction": 0.2521,
+        "pool_saturation_fraction": 1.0
+      },
+      {
+        "policy": "persistence",
+        "resource": "cpu",
+        "utilization": 0.8994,
+        "unused_resource_seconds": 11873.1196,
+        "unmet_resource_seconds": 11487.7946,
+        "unmet_fraction": 0.0977,
+        "overloaded_task_fraction": 0.4409,
+        "pool_saturation_fraction": 0.0
+      },
+      {
+        "policy": "persistence",
+        "resource": "memory",
+        "utilization": 0.99,
+        "unused_resource_seconds": 1555.3292,
+        "unmet_resource_seconds": 1747.1648,
+        "unmet_fraction": 0.0112,
+        "overloaded_task_fraction": 0.3741,
+        "pool_saturation_fraction": 0.0
+      },
+      {
+        "policy": "forest_plus_margin",
+        "resource": "cpu",
+        "utilization": 0.8184,
+        "unused_resource_seconds": 24344.59,
+        "unmet_resource_seconds": 7917.2659,
+        "unmet_fraction": 0.0673,
+        "overloaded_task_fraction": 0.0911,
+        "pool_saturation_fraction": 0.4
+      },
+      {
+        "policy": "forest_plus_margin",
+        "resource": "memory",
+        "utilization": 0.9395,
+        "unused_resource_seconds": 9960.8774,
+        "unmet_resource_seconds": 1578.3181,
+        "unmet_fraction": 0.0101,
+        "overloaded_task_fraction": 0.0888,
+        "pool_saturation_fraction": 1.0
+      }
+    ],
+    "scenarios": [
+      {
+        "scenario": "original",
+        "policy": "fixed",
+        "resource": "cpu",
+        "utilization": 0.3614,
+        "unmet_fraction": 0.5527,
+        "overloaded_task_fraction": 0.2453,
+        "pool_saturation_fraction": 1.0
+      },
+      {
+        "scenario": "original",
+        "policy": "fixed",
+        "resource": "memory",
+        "utilization": 0.4387,
+        "unmet_fraction": 0.5378,
+        "overloaded_task_fraction": 0.2521,
+        "pool_saturation_fraction": 1.0
+      },
+      {
+        "scenario": "original",
+        "policy": "persistence",
+        "resource": "cpu",
+        "utilization": 0.8994,
+        "unmet_fraction": 0.0977,
+        "overloaded_task_fraction": 0.4409,
+        "pool_saturation_fraction": 0.0
+      },
+      {
+        "scenario": "original",
+        "policy": "persistence",
+        "resource": "memory",
+        "utilization": 0.99,
+        "unmet_fraction": 0.0112,
+        "overloaded_task_fraction": 0.3741,
+        "pool_saturation_fraction": 0.0
+      },
+      {
+        "scenario": "original",
+        "policy": "forest_plus_margin",
+        "resource": "cpu",
+        "utilization": 0.8184,
+        "unmet_fraction": 0.0673,
+        "overloaded_task_fraction": 0.0911,
+        "pool_saturation_fraction": 0.4
+      },
+      {
+        "scenario": "original",
+        "policy": "forest_plus_margin",
+        "resource": "memory",
+        "utilization": 0.9395,
+        "unmet_fraction": 0.0101,
+        "overloaded_task_fraction": 0.0888,
+        "pool_saturation_fraction": 1.0
+      },
+      {
+        "scenario": "+20% demand",
+        "policy": "fixed",
+        "resource": "cpu",
+        "utilization": 0.3821,
+        "unmet_fraction": 0.6059,
+        "overloaded_task_fraction": 0.2727,
+        "pool_saturation_fraction": 1.0
+      },
+      {
+        "scenario": "+20% demand",
+        "policy": "fixed",
+        "resource": "memory",
+        "utilization": 0.4723,
+        "unmet_fraction": 0.5853,
+        "overloaded_task_fraction": 0.2924,
+        "pool_saturation_fraction": 1.0
+      },
+      {
+        "scenario": "+20% demand",
+        "policy": "persistence",
+        "resource": "cpu",
+        "utilization": 0.9452,
+        "unmet_fraction": 0.2098,
+        "overloaded_task_fraction": 0.85,
+        "pool_saturation_fraction": 0.0
+      },
+      {
+        "scenario": "+20% demand",
+        "policy": "persistence",
+        "resource": "memory",
+        "utilization": 0.9969,
+        "unmet_fraction": 0.1703,
+        "overloaded_task_fraction": 0.9393,
+        "pool_saturation_fraction": 0.0
+      },
+      {
+        "scenario": "+20% demand",
+        "policy": "forest_plus_margin",
+        "resource": "cpu",
+        "utilization": 0.8973,
+        "unmet_fraction": 0.1479,
+        "overloaded_task_fraction": 0.2525,
+        "pool_saturation_fraction": 0.4
+      },
+      {
+        "scenario": "+20% demand",
+        "policy": "forest_plus_margin",
+        "resource": "memory",
+        "utilization": 0.9761,
+        "unmet_fraction": 0.1429,
+        "overloaded_task_fraction": 0.4958,
+        "pool_saturation_fraction": 1.0
+      },
+      {
+        "scenario": "+50% demand",
+        "policy": "fixed",
+        "resource": "cpu",
+        "utilization": 0.4057,
+        "unmet_fraction": 0.6652,
+        "overloaded_task_fraction": 0.306,
+        "pool_saturation_fraction": 1.0
+      },
+      {
+        "scenario": "+50% demand",
+        "policy": "fixed",
+        "resource": "memory",
+        "utilization": 0.5113,
+        "unmet_fraction": 0.6409,
+        "overloaded_task_fraction": 0.3384,
+        "pool_saturation_fraction": 1.0
+      },
+      {
+        "scenario": "+50% demand",
+        "policy": "persistence",
+        "resource": "cpu",
+        "utilization": 0.9678,
+        "unmet_fraction": 0.3527,
+        "overloaded_task_fraction": 0.905,
+        "pool_saturation_fraction": 0.0
+      },
+      {
+        "scenario": "+50% demand",
+        "policy": "persistence",
+        "resource": "memory",
+        "utilization": 0.9985,
+        "unmet_fraction": 0.3351,
+        "overloaded_task_fraction": 0.9505,
+        "pool_saturation_fraction": 0.0
+      },
+      {
+        "scenario": "+50% demand",
+        "policy": "forest_plus_margin",
+        "resource": "cpu",
+        "utilization": 0.9327,
+        "unmet_fraction": 0.2914,
+        "overloaded_task_fraction": 0.3904,
+        "pool_saturation_fraction": 0.4
+      },
+      {
+        "scenario": "+50% demand",
+        "policy": "forest_plus_margin",
+        "resource": "memory",
+        "utilization": 0.9844,
+        "unmet_fraction": 0.3085,
+        "overloaded_task_fraction": 0.5999,
+        "pool_saturation_fraction": 1.0
+      },
+      {
+        "scenario": "-20% pool",
+        "policy": "fixed",
+        "resource": "cpu",
+        "utilization": 0.3866,
+        "unmet_fraction": 0.6172,
+        "overloaded_task_fraction": 0.2793,
+        "pool_saturation_fraction": 1.0
+      },
+      {
+        "scenario": "-20% pool",
+        "policy": "fixed",
+        "resource": "memory",
+        "utilization": 0.4796,
+        "unmet_fraction": 0.5957,
+        "overloaded_task_fraction": 0.3035,
+        "pool_saturation_fraction": 1.0
+      },
+      {
+        "scenario": "-20% pool",
+        "policy": "persistence",
+        "resource": "cpu",
+        "utilization": 0.9137,
+        "unmet_fraction": 0.1262,
+        "overloaded_task_fraction": 0.5996,
+        "pool_saturation_fraction": 0.4667
+      },
+      {
+        "scenario": "-20% pool",
+        "policy": "persistence",
+        "resource": "memory",
+        "utilization": 0.9966,
+        "unmet_fraction": 0.1599,
+        "overloaded_task_fraction": 0.9369,
+        "pool_saturation_fraction": 1.0
+      },
+      {
+        "scenario": "-20% pool",
+        "policy": "forest_plus_margin",
+        "resource": "cpu",
+        "utilization": 0.8769,
+        "unmet_fraction": 0.1317,
+        "overloaded_task_fraction": 0.2128,
+        "pool_saturation_fraction": 1.0
+      },
+      {
+        "scenario": "-20% pool",
+        "policy": "forest_plus_margin",
+        "resource": "memory",
+        "utilization": 0.9782,
+        "unmet_fraction": 0.1754,
+        "overloaded_task_fraction": 0.5267,
+        "pool_saturation_fraction": 1.0
+      }
+    ]
+  },
+  "limitations": [
+    "First six task_usage shards and an identity-hash sample, not the full trace.",
+    "CPU and memory are normalized usage units, not physical cores or GB.",
+    "Observed usage is treated as demand; unconstrained demand is unknown.",
+    "Allocation pools and contention are simulated for the sampled cohort.",
+    "Risk classes are allocation-derived proxy labels, not verified failures.",
+    "No machine placement, latency, SLA, production cost, or real savings are measured."
+  ]
+}
