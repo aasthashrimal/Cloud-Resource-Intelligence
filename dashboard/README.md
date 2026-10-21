@@ -12,6 +12,7 @@ python -m venv .venv
 .\.venv\Scripts\python -m pip install -r dashboard\requirements.txt
 .\.venv\Scripts\python -m streamlit run dashboard\app.py
 ```
+(Use 3rd one to run)
 
 Streamlit will print a local address, usually `http://localhost:8501`. Open it
 in a browser. The sidebar switches CPU/memory; the allocation tab lets you
